@@ -5,17 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
-    <link rel="stylesheet" href="/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
   <title>Tarefas</title>
 </head>
 
 <body>
-    
-    <nav>
-    <div style="margin-bottom: 10px;" class="ui container">
-        <h1 class="ui inverted center aligned header"> Tarefas </h1>
-		<div class="ui inverted small image">
+
+    <div style="margin-top: 50px;" class="ui container">
+        <h1 class="ui center aligned header"> Tarefas </h1>
+		<div class="ui small image">
             <img src="https://www.onlineapp.com.br/wp-content/uploads/2021/04/cropped-Logo_OnlineApp.png">
         </div>
         <div id="current_date">
@@ -25,23 +23,20 @@
                 document.getElementById('date-time').innerHTML=dt;
                 </script>
             </p>
-    </div>
-    </nav>
+        </div>
         <form class="ui form" action="/add" method="post">
             <div class="required field">
                 <label> Lista de Tarefas </label>
                 <input type="text" name="title" placeholder="Descrição" required><br>
-                <input type="date" name="dia" placeholder="Data" required><br>
+                <input type="date" name="dia" placeholder="Digite o dia da Entrega" required><br>
             </div>
             <button class="ui blue button" type="submit"> Adicionar </button>
         </form>
-
         <hr>
-
         {% for tarefa in tarefa_list %}
         <div class="ui blue segment">
             
-            <p class="ui big header">{{ tarefa.id }} | {{ tarefa.title }}  | {{ tarefa.dia }} </p>
+            <p class="ui big header">{{ tarefa.id }} | {{ tarefa.title }} <br>Entrega: {{ tarefa.dia }}</p>
             
             <a class="ui red button" href="/delete/{{ tarefa.id }}"> Deletar </a>
             <a class="ui yellow button" href="/update/{{ tarefa.id }}"> Status </a>
@@ -50,44 +45,40 @@
             <span class="ui gray label"> Pendente </span>
             {% else %}
             <span class="ui green label"> Completa </span>
-            {% endif %}
-
-            
+            {% endif %}           
         </div>
         {% endfor %}
     </div>
-
     <hr>
 
 </body>
-    
-    <nav>
+  <div style="margin-left: 50px;
+              margin-top: 25px;">
     <div class="ui list">
         <div class="item">
-          <i class="inverted users icon"></i>
-          <div class="inverted content">
+          <i class="users icon"></i>
+          <div class="content">
             Online Applications
           </div>
         </div>
         <div class="item"> 
-          <i class=" inverted marker icon"></i>
+          <i class="marker icon"></i>
           <div class="content">
             São Paulo - SP <i class="br flag"></i>
           </div>
         </div>
         <div class="item">
-          <i class="inverted mail icon"></i>
+          <i class="mail icon"></i>
           <div class="content">
             pedro.lopes@onlineapp.com.br
           </div>
         </div>
         <div class="item">
-            <i class="inverted github icon"></i>
+            <i class="github icon"></i>
           <div class="content">
             <a href="https://github.com/stars/Pedrolrbr/lists/projeto-lista-de-tarefas">github.com</a>
           </div>
         </div>
-    </nav>
       </div>
-    
+  </div>
 </html>
