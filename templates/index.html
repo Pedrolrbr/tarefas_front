@@ -9,26 +9,41 @@
   <title>Tarefas</title>
 </head>
 
+
+
 <body>
+
+    <aside class="">
+      <a href="/" id="home">Home</a>
+      <a href="/tarefas_finalizadas" id="finalizadas">Finalizadas</a>
+    </aside>
 
     <div style="margin-top: 50px;" class="ui container">
         <h1 class="ui center aligned header"> Tarefas </h1>
 		<div class="ui small image">
             <img src="https://www.onlineapp.com.br/wp-content/uploads/2021/04/cropped-Logo_OnlineApp.png">
-        </div>
-        <div id="current_date">
-            <p><span id='date-time'></span> <i class="br flag"></i></p> 
-                <script>
-                var dt = new Date();
-                document.getElementById('date-time').innerHTML=dt;
-                </script>
-            </p>
-        </div>
+    </div>
         <form class="ui form" action="/add" method="post">
             <div class="required field">
-                <label> Lista de Tarefas </label>
+              <Label>Tipo</Label>
+              <select name="tipo" id="grau">
+                <optgroup label="Trabalho">
+                  <option value="Reunião">Reunião</option>
+                  <option value="Entrega">Entrega</option>
+                </optgroup>
+                
+                <optgroup label="Lazer">
+                  <option value="Esportes">Esportes</option>
+                  <option value="Ler">Ler</option>
+                  <option value="Viagem">Viagem</option>
+                  <option value="Cinema">Cinema</option>
+                </optgroup>
+              </select>
+                <label> Descrição </label>
                 <input type="text" name="title" placeholder="Descrição" required><br>
+                <label> Data de Entrega </label>
                 <input type="date" name="dia" placeholder="Digite o dia da Entrega" required><br>
+                <label for="tarefas">Tipo:</label>
             </div>
             <button class="ui blue button" type="submit"> Adicionar </button>
         </form>
@@ -36,7 +51,7 @@
         {% for tarefa in tarefa_list %}
         <div class="ui blue segment">
             
-            <p class="ui big header">{{ tarefa.id }} | {{ tarefa.title }} <br>Entrega: {{ tarefa.dia }}</p>
+            <p class="ui big header">{{ tarefa.id }} | Tipo: {{ tarefa.tipo }} <br>Descrição: {{ tarefa.title }} <br>Entrega: {{ tarefa.dia }}</p>
             
             <a class="ui red button" href="/delete/{{ tarefa.id }}"> Deletar </a>
             <a class="ui yellow button" href="/update/{{ tarefa.id }}"> Status </a>
@@ -80,6 +95,14 @@
           </div>
         </div>
       </div>
+      <div id="current_date">
+        <p><span id='date-time'></span> <i class="br flag"></i></p> 
+            <script>
+            var dt = new Date();
+            document.getElementById('date-time').innerHTML=dt;
+            </script>
+        </p>
+    </div>
   </div>
 </html>
 
