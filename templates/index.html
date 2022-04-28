@@ -30,9 +30,17 @@
             <div class="required field">
               <Label>Tipo</Label>
               <select name="tipo" id="grau">
+                <option value="">Tipo</option>
+                
                 <optgroup label="Trabalho">
                   <option value="Reunião">Reunião</option>
                   <option value="Entrega">Atividade</option>
+                </optgroup>
+                
+                <optgroup label="Estudos">
+                  <option value="Curso">Curso</option>
+                  <option value="Trabalho">Trabalho</option>
+                  <option value="Atividade">Atividade</option>
                 </optgroup>
                 
                 <optgroup label="Lazer">
@@ -41,6 +49,7 @@
                   <option value="Viagem">Viagem</option>
                   <option value="Cinema">Cinema</option>
                 </optgroup>
+
               </select>
                 <label> Descrição </label>
                 <input type="text" name="title" placeholder="Descrição" required><br>
