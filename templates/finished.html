@@ -10,13 +10,16 @@
 </head>
 
 <body>
-
-    <aside class="">
+    <aside class="ui primary basic vertical button">
         <a href="/" id="home">Home</a>
+    </aside>
+
+    <aside class="ui primary basic vertical button">  
         <a href="/tarefas_finalizadas" id="finalizadas">Finalizadas</a>
     </aside>
 
-    <div style="margin-top: 50px;" class="ui container">
+
+    <div class="ui container">
         <h1 class="ui center aligned header"> Tarefas </h1>
 		<div class="ui small image">
             <img src="https://www.onlineapp.com.br/wp-content/uploads/2021/04/cropped-Logo_OnlineApp.png">
@@ -26,11 +29,50 @@
         {% for tarefa in tarefa_list %}
         <div class="ui green segment">
             {% if tarefa.complete == True %}
-            <p class="ui big header">{{ tarefa.id }} | Tipo: {{ tarefa.tipo }} <br>Descrição: {{ tarefa.title }} <br>Entrega: {{ tarefa.dia }}</p> <button class="ui green button"> Completa </button>
+            <p class="ui big header">{{ tarefa.id }} | Tipo: {{ tarefa.tipo }} <br>Descrição: {{ tarefa.title }} <br>Data: {{ tarefa.dia }}</p> <button class="ui green button"> Completa </button>
+            <a class="ui red button" href="/delete/{{ tarefa.id }}"> Deletar </a>
             {% else %}
-            <p class="ui big header"> Não Finalizada </p>
+            <p class="ui big header"> {{ tarefa.id }} | Não Finalizada </p>
             {% endif %}
         </div>
         {% endfor %}
+        <hr>
 
-</body>      
+</body>
+    <div style="margin-left: 50px;
+              margin-top: px;">
+    <div class="ui list">
+        <div class="item">
+          <i class="users icon"></i>
+          <div class="content">
+            Online Applications
+          </div>
+        </div>
+        <div class="item"> 
+          <i class="marker icon"></i>
+          <div class="content">
+            São Paulo - SP <i class="br flag"></i>
+          </div>
+        </div>
+        <div class="item">
+          <i class="mail icon"></i>
+          <div class="content">
+            pedro.lopes@onlineapp.com.br
+          </div>
+        </div>
+        <div class="item">
+            <i class="github icon"></i>
+          <div class="content">
+            <a href="https://github.com/stars/Pedrolrbr/lists/projeto-lista-de-tarefas">github.com</a>
+          </div>
+        </div>
+      </div>
+      <div id="current_date">
+        <p><span id='date-time'></span> <i class="br flag"></i></p> 
+            <script>
+            var dt = new Date();
+            document.getElementById('date-time').innerHTML=dt;
+            </script>
+        </p>
+      </div>
+    </div>
