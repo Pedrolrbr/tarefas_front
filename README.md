@@ -1,6 +1,4 @@
 # tarefas_front
-![image](https://user-images.githubusercontent.com/96634781/165958436-142f5026-74c2-4743-ac22-06d9acac55da.png)
-
+![image](https://user-images.githubusercontent.com/96634781/165982898-4dcde60f-cadd-4629-a671-05a79fd659b2.png)
 *TAREFAS*
-![image](https://user-images.githubusercontent.com/96634781/165958565-8cc67a75-d32f-4291-b66a-cb448dd229ab.png)
-
+![image](https://user-images.githubusercontent.com/96634781/165983100-b80dcdb9-25ec-4293-9880-d24565701c4d.png)
