@@ -18,6 +18,26 @@
         <a href="/tarefas_finalizadas" id="finalizadas">Finalizadas</a>
     </aside>
 
+    <aside class="ui primary basic vertical button">  
+        <a href="/tarefas_esporte" id="esportes">Esportes</a>
+    </aside>
+
+    <aside class="ui primary basic vertical button">  
+        <a href="/tarefas_trabalho" id="trabalho">Trabalho</a>
+    </aside>
+
+    <aside class="ui primary basic vertical button">  
+        <a href="/tarefas_estudo" id="estudo">Estudos</a>
+    </aside>
+
+    <aside class="ui primary basic vertical button">  
+        <a href="/tarefas_lazer" id="estudo">Lazer</a>
+    </aside>
+
+    <aside class="ui primary basic vertical button">  
+        <a href="/tarefas_viagem" id="estudo">Viagem</a>
+    </aside>
+
 
     <div class="ui container">
         <h1 class="ui center aligned header"> Tarefas </h1>
@@ -26,14 +46,19 @@
     </div>
 
     <hr>
-        {% for tarefa in tarefa_list %}
+        {% for viagem in tarefa_list %}
         <div class="ui green segment">
-            {% if tarefa.complete == True %}
-            <p class="ui big header">{{ tarefa.id }} | Tipo: {{ tarefa.tipo }} <br>Descrição: {{ tarefa.title }} <br>Data: {{ tarefa.dia }}</p> <button class="ui green button"> Completa </button>
-            <a class="ui red button" href="/delete/{{ tarefa.id }}"> Deletar </a>
+            {% if viagem.tipo == 'Viagem' %}
+            <p class="ui big header">{{ viagem.id }} | Tipo: {{ viagem.tipo }} <br>Descrição: {{ viagem.title }} <br>Data: {{ viagem.dia }}</p>   
+            {% if viagem.complete == True %}         
+            <button class="ui green button"> Completa </button>
+            <a class="ui red button" href="/delete/{{ viagem.id }}"> Deletar </a>
             {% else %}
-            <p class="ui big header"> {{ tarefa.id }} | Não Finalizada </p>
+            <button class="ui button"> Incompleta </button>
+            <a class="ui red button" href="/delete/{{ viagem.id }}"> Deletar </a>
             {% endif %}
+            {% endif %}
+            
         </div>
         {% endfor %}
         <hr>
